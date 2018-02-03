@@ -1,4 +1,4 @@
- ; -*- mode: lisp-interaction; syntax: elisp -*-
+;;; -*- mode: lisp-interaction; syntax: elisp -*-
 ;;;
 ;;; ~/.emacs
 ;;;
@@ -14,7 +14,11 @@
 (setq url-proxy
       '(("http" . "camellia.nri.co.jp:8080")
         ("https" . "camellia.nri.co.jp:8080")))
-(setq url-proxy-services url-proxy)
+(if (string-match "apple-darwin" system-configuration)
+    (provide 'macos))
+(cond
+ ((featurep 'macos) nil)
+ (t (setq url-proxy-services url-proxy)))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -111,7 +115,7 @@
           (setq shell-file-name "c:/cygwin/bin/bash.exe"
                 shell-command-option "-c")
           (modify-coding-system-alist 'process ".*sh\\.exe" 'utf-8-unix))
-  (setq shell-file-name "/usr/bin/zsh")
+  (setq shell-file-name (executable-find "zsh"))
   (modify-coding-system-alist 'process ".*sh" 'utf-8))
 
 (setq shell-edit-mode-map (make-sparse-keymap))
@@ -576,8 +580,8 @@ buffer, change the key-map by this function."
 ;;;
 ;;; Japanese/English dictionary (C-ce)
 ;;;
-(require 'google-translate)
-(require 'google-translate-default-ui)
+(require-or-install 'google-translate)
+(require-or-install 'google-translate-default-ui)
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "ja")
 
@@ -661,8 +665,10 @@ buffer, change the key-map by this function."
 ;;;
 (require-or-install 'migemo)
 (setq migemo-dictionary
-      (cond ((featurep 'w32-win) 
+      (cond ((featurep 'w32-win)
              "c:/Users/hirata/.emacs.d/migemo/utf-8/migemo-dict")
+            ((featurep 'macos)
+             "/usr/local/share/migemo/utf-8/migemo-dict")
             (t "/usr/share/cmigemo/utf-8/migemo-dict")))
 (setq migemo-command (executable-find "cmigemo"))
 (setq migemo-options '("-q" "--emacs"))
@@ -677,7 +683,7 @@ buffer, change the key-map by this function."
 (setq eww-search-prefix "http://www.google.co.jp/search?q=")
 (setq eww-disable-colorize t)
 (when (featurep 'w32-win)
-  (setq browse-url-generic-program 
+  (setq browse-url-generic-program
         "c:/Program Files/Mozilla Firefox/firefox.exe"))
 ;(add-hook 'eww-mode-hook '(lambda () (rename-buffer "eww" t)))
 
@@ -698,7 +704,7 @@ buffer, change the key-map by this function."
 ;;;
 ;;; auto save buffer
 ;;;
-(require 'auto-save-buffers-enhanced)
+(require-or-install 'auto-save-buffers-enhanced)
 (setq auto-save-buffers-enhanced-interval 1)
 (setq auto-save-buffers-enhanced-include-regexps '(".+")) ;全ファイル
 (setq auto-save-buffers-enhanced-exclude-regexps '("\\.gpg$"))
@@ -843,9 +849,7 @@ buffer, change the key-map by this function."
   (font-spec :family "HG P明朝L Sun" :size 12)))
 
 ; emacs24 on Mac
-(when (and window-system
-           (string-match "^24\." emacs-version)
-           (string-match "apple-darwin" system-configuration))
+(when (and window-system (featurep 'macos))
   ;; ASCII フォント
   (set-fontset-font "fontset-standard" 'latin
                     ;(font-spec :family "Menlo" :size 12)
@@ -941,6 +945,7 @@ buffer, change the key-map by this function."
 (global-set-key "\C-cq" 'telgate)
 (global-set-key "\C-cr" 'recentf-open-files)
 (global-set-key "\C-cs" 'shell)
+;(global-set-key "\C-cs" 'ansi-term)
 (global-set-key "\C-ct" 'ispell-word)
 (global-set-key "\C-cu" 'skk-undo-kakutei)
 (global-set-key "\C-cv" "\M-xview-buffer")
@@ -977,7 +982,7 @@ buffer, change the key-map by this function."
        (global-set-key [double-mouse-1] 'mouse-set-point)
        (global-set-key [double-mouse-2] 'browse-url-netscape)
        (global-set-key [double-mouse-3] 'mouse-edic)))
-(when (string-match "apple-darwin" system-configuration)
+(when (featurep 'macos)
   (setq ns-command-modifier (quote meta))
   (setq ns-alternate-modifier (quote super)))
 
