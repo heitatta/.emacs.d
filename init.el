@@ -359,6 +359,15 @@ buffer, change the key-map by this function."
   (require 'ecb-autoloads))
 
 ;;;
+;;; go-mode
+;;;
+(add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
+(autoload 'go-mode "go-mode" nil t)
+(add-hook 'go-mode-hook '(lambda ()
+                           (require 'go-autocomplete)
+                           (add-hook 'before-save-hook #'gofmt-before-save)))
+
+;;;
 ;;; SmartDoc
 ;;;
 (add-to-list 'auto-mode-alist '("\\.sdoc$" . sdoc-mode))
