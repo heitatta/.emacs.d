@@ -1,0 +1,11 @@
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+/backup
+.elc
+auto-save-list
+tramp
+recentf
+scratch
+.\#*
