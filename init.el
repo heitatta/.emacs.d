@@ -540,6 +540,8 @@ buffer, change the key-map by this function."
 ;;;
 ;;; SKK
 ;;;
+(unless (locate-library "skk")
+  (package-install 'ddskk))
 (autoload 'skk-mode "skk" nil t)
 (autoload 'skk-auto-fill-mode "skk" nil t)
 (autoload 'skk-input-by-code-or-menu "skk" nil t)  ;; C-c\\
@@ -548,9 +550,8 @@ buffer, change the key-map by this function."
 (autoload 'skk-isearch-mode-setup "skk-isearch" nil t)
 (autoload 'skk-isearch-mode-cleanup "skk-isearch" nil t)
 (setq skk-byte-compile-init-file nil)
-(setq skk-init-file "~/.skk/skkrc")
+(setq skk-init-file "~/.emacs.d/init-skk.el")
 ;;(setq skk-jisyo     "~/.skk/skk-jisyo")
-;;(global-set-key "\C-xj" 'skk-auto-fill-mode)
 (global-set-key "\C-xj" 'auto-fill-mode)
 (global-set-key "\C-x\C-j" 'skk-mode)
 
