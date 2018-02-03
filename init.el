@@ -49,7 +49,7 @@
 ;;;
 ;;; Load Pathes
 ;;;
-(let ((dir (expand-file-name "~/lib/elisp")))
+(let ((dir (expand-file-name "~/.emacs.d/elisp")))
   (setq load-path (cons dir load-path))
   (let ((default-directory dir))
     (load (expand-file-name "subdirs.el"))))
