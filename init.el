@@ -767,7 +767,7 @@ buffer, change the key-map by this function."
 (setq next-line-add-newlines nil)
 (setq scroll-step 4)
 (setq line-number-mode t)
-(set-scroll-bar-mode nil)
+(when window-system (set-scroll-bar-mode nil))
 (setq minibuffer-auto-raise nil)
 (setq visible-bell t)
 ;(setq inhibit-default-init t)
@@ -869,13 +869,13 @@ buffer, change the key-map by this function."
   (set-fontset-font "fontset-standard" 'japanese-jisx0208
                     ;'("Hiragino Maru Gothic ProN")
                     ;'("Hiragino Kaku Gothic ProN")
-                    '("Hiragino Mincho ProN")
+                    '("ヒラギノ明朝 ProN")
                     )
   ;; 半角カナのフォント
   (set-fontset-font "fontset-standard" 'katakana-jisx0201
                     ;'("Hiragino Maru Gothic ProN")
                     ;'("Hiragino Kaku Gothic ProN")
-                    '("Hiragino Mincho ProN")
+                    '("ヒラギノ明朝 ProN")
                     )
   (setq face-font-rescale-alist
     '(("^-apple-hiragino.*" . 1.2)
