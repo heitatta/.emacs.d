@@ -674,12 +674,7 @@ buffer, change the key-map by this function."
 ;;; migemo
 ;;;
 (require-or-install 'migemo)
-(setq migemo-dictionary
-      (cond ((featurep 'w32-win)
-             "c:/Users/hirata/.emacs.d/migemo/utf-8/migemo-dict")
-            ((featurep 'macos)
-             "/usr/local/share/migemo/utf-8/migemo-dict")
-            (t "/usr/share/cmigemo/utf-8/migemo-dict")))
+(setq migemo-dictionary (expand-file-name "~/.emacs.d/dict/migemo-dict"))
 (setq migemo-command (executable-find "cmigemo"))
 (setq migemo-options '("-q" "--emacs"))
 (setq migemo-user-dictionary nil)
