@@ -278,7 +278,7 @@ buffer, change the key-map by this function."
 
 ;; 日曜日、土曜日、休日に色をつける
 (make-face 'holiday-face)
-(set-face-background 'holiday-face "tomato")
+(set-face-background 'holiday-face "light coral")
 
 (make-face 'sunday-face)
 (set-face-foreground 'sunday-face "red")
