@@ -1,6 +1,7 @@
 /.emacs.desktop
 /.emacs.desktop.lock
 /.session
+/session.*
 /ac-comphist.dat
 /auto-save-list
 /backup
