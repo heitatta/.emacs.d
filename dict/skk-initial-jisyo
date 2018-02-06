@@ -1,0 +1,43 @@
+;; okuri-ari entries.
+¤ï¤«r /È½/ÊÌ/[¤ì/ÊÌ/È½/]/[¤é/È½/]/[¤ë/È½/]/
+¤ßt /¸«/[¤¿/¸«/]/
+¤«¤¨r /µ¢/[¤ë/µ¢/]/
+¤«k /½ñ/[¤«/½ñ/]/[¤¯/½ñ/]/
+¤«i /½ñ/Çã/[¤¤/½ñ/Çã/]/
+¤ª¤ât /»×/½Å/[¤¿/½Å/]/[¤Ã¤¿/»×/]/[¤Ã¤Æ/»×/]/
+¤ª¤âi /»×/½Å/[¤¤/»×/½Å/]/
+¤ª¤ªi /Â¿/Âç/
+¤¤i /¸À/[¤¤/¸À/]/
+¤¤t /¸À/¹Ô/[¤Ã¤Æ/¸À/¹Ô/]/[¤Ã¤¿/¸À/¹Ô/]/
+¤¢g /¾å/[¤²/¾å/]/
+;; okuri-nasi entries.
+# /#1/#2/#3/#0/#4/
+date /¥Ç¡¼¥È/(skk-current-date (lambda (date-information format gengo and-time) (skk-default-current-date date-information "%s\x2f%s\x2f%s" 0 nil 0 0 nil)))/(skk-current-date (lambda (date-information format gengo and-time) (skk-default-current-date date-information nil 0 nil 0 0 0)))/(skk-current-date (lambda (date-information format gengo and-time) (skk-default-current-date date-information nil 3 t 0 0 0)))/
+today /¥È¥¥¥Ç¥¤/(skk-current-date (lambda (date-information format gengo and-time) (skk-default-current-date date-information "%s\x2f%s\x2f%s" 0 nil 0 0 nil)))/(skk-current-date (lambda (date-information format gengo and-time) (skk-default-current-date date-information nil 0 nil 0 0 0)))/(skk-current-date (lambda (date-information format gengo and-time) (skk-default-current-date date-information nil 3 t 0 0 0)))/
+time /¥¿¥¤¥à/(substring (current-time-string) 11 16)/(substring (current-time-string) 11 19)/(current-time-string)/
+now /¥Ê¥¦/(substring (current-time-string) 11 16)/(substring (current-time-string) 11 19)/(current-time-string)/
+Russia /§¡/§¢/§£/§¤/§¥/§¦/§§/§¨/§©/§ª/§«/§¬/§­/§®/§¯/§°/§±/§²/§³/§´/§µ/§¶/§·/§¸/§¹/§º/§»/§¼/§½/§¾/§¿/§À/§Á/
+russia /¥í¥·¥¢/§Ñ/§Ò/§Ó/§Ô/§Õ/§Ö/§×/§Ø/§Ù/§Ú/§Û/§Ü/§Ý/§Þ/§ß/§à/§á/§â/§ã/§ä/§å/§æ/§ç/§è/§é/§ê/§ë/§ì/§í/§î/§ï/§ð/§ñ/
+Greek /¦¡/¦¢/¦£/¦¤/¦¥/¦¦/¦§/¦¨/¦©/¦ª/¦«/¦¬/¦­/¦®/¦¯/¦°/¦±/¦²/¦³/¦´/¦µ/¦¶/¦·/¦¸/
+greek /¦Á/¦Â/¦Ã/¦Ä/¦Å/¦Æ/¦Ç/¦È/¦É/¦Ê/¦Ë/¦Ì/¦Í/¦Î/¦Ï/¦Ð/¦Ñ/¦Ò/¦Ó/¦Ô/¦Õ/¦Ö/¦×/¦Ø/
+line /¥é¥¤¥ó/
+memo /¥á¥â/
+[ /¡Ø/¡Ú/¡Î/
+] /¡Ù/¡Û/¡Ï/
+¤ª¤ó¤× /²»Éä/
+¤«¤Ã¤³ /³ç¸Ì/
+¤­¤´¤¦ /µ­¹æ/
+¤­¤ß /·¯/µ®Èþ/
+¤­¤ç¤¦¤À¤¤ /µþÂç/
+¤±¤¤¤»¤ó /·ÓÀþ/
+¤´ /¸å/¸ì/
+¤³¤Ã¤« /¹ñ²È/
+¤µ¤¤¤´ /ºÇ¸å/
+¤µ¤¯¤é¤¬¤ï /Ý¯Àî/ºùÀî/
+¤µ¤ó¤«¤¯ /»°³Ñ/
+¤·¤«¤¯/»Í³Ñ/»ñ³Ê/»ë³Ð/»ÉµÒ/»à³Ñ
+¤·¤è¤¦ /»ÈÍÑ/»ÅÍÍ/
+¤Û¤· /À±/
+¤Þ¤ë /´Ý/±ß/
+¤ä¤¸¤ë¤· /Ìð°õ/
+¤æ¤« /Í³²Â/

@@ -1,9 +1,9 @@
 ;;;
 ;;; Set Jisyos
 ;;;
-(setq skk-initial-search-jisyo "~/.skk/skk-initial-jisyo")
+(setq skk-initial-search-jisyo "~/.emacs.d/dict/skk-initial-jisyo")
 (setq skk-jisyo "~/.skk/skk-jisyo")
-(setq skk-large-jisyo "~/.skk/SKK-JISYO.L")
+(setq skk-large-jisyo "~/.emacs.d/dict/SKK-JISYO.L")
 ;(setq skk-server-host "cosmos")
 ;(setq skk-aux-large-jisyo "~/lib/elisp/skk-jisyo.L")
 ;(setq skk-portnum 1178)
@@ -17,80 +17,94 @@
 (setq skk-allow-spaces-newlines-and-tabs nil)
 (setq skk-auto-start-henkan nil)
 (setq skk-auto-insert-paren nil)
-(setq skk-backup-jisyo "~/.skk/skk-jisyo.BAK")
-(setq skk-compare-jisyo-size-when-saving nil)
-(setq skk-date-ad t)
-(setq skk-henkan-okuri-strictly t)
 (setq skk-isearch-start-mode 'ascii)
 (setq skk-isearch-use-previous-mode nil)
-(setq skk-jisyo-save-count 100)
-(setq skk-number-style nil)
-(setq skk-record-file "~/.skk/skk-record")
-(setq skk-use-color-cursor nil)
-   (defun skk-set-cursor-color-properly ()) ;; bug...
-(setq skk-use-face nil)
 ;(skk-dabberv-like-completion t)
 ;(setq skk-use-vip t)
+(setq skk-echo t)
+(setq skk-kakutei-early t)
 
+;; skk-henkan-okuri-strictly ã¯åŠŸç½ªã‚ã‚‹æ©Ÿèƒ½ã ãŒã€
+;; skk-henkan-strict-okuri-precedence ã¯æŠ˜è¡·æ¡ˆã§ä¾¿åˆ©
+;(setq skk-henkan-okuri-strictly t)
+(setq skk-henkan-okuri-strictly nil)
+(setq skk-henkan-strict-okuri-precedence t)
+(setq skk-auto-okuri-process nil)
+(setq skk-convert-okurigana-into-katakana nil)
+(setq skk-delete-okuri-when-quit nil)
+(setq skk-process-okuri-early nil)
 
-;;;
-;;; Favorite Settings (by Default)
-;;;
-;(setq skk-auto-okuri-process nil)
-;(setq skk-convert-okurigana-into-katakana nil)
-;(setq skk-delete-okuri-when-quit nil)
-;(setq skk-echo t)
-;(setq skk-kakutei-early t)
-;(setq skk-keep-record t)
-;(setq skk-process-okuri-early nil)
+;; instantly ã‚’æŒ‡å®šã™ã‚‹ã®ã§ã€ã‚‚ã¯ã‚„ save-count ã«æ„å‘³ã¯ãªã„ãŒã€
+;; private-jisyo è¨­å®šã«ã¯ save-count ã®è¨­å®šãŒå¿…é ˆãªã®ã§ã€‚
+(setq skk-jisyo-save-count 100)
+(setq skk-save-jisyo-instantly t)
+(setq skk-share-private-jisyo t)
+(setq skk-compare-jisyo-size-when-saving t)
+(setq skk-backup-jisyo "~/.skk/skk-jisyo.BAK")
 
-;;;
-;;; Modify Input Vector
-;;;
-;(add-hook 'skk-mode-hook
-;	  '(lambda ()
-;	     (define-key skk-j-mode-map "@" 'skk-insert)
-;	     (define-key skk-j-mode-map "\\" 'skk-insert)
-;	     (define-key skk-j-mode-map "$" 'skk-insert)))
-;(aset skk-input-vector ?! nil)
-;(aset skk-input-vector ?# "¡ô")
-;(aset skk-input-vector ?% "¡ó")
-;(aset skk-input-vector ?: nil)
-;(aset skk-input-vector ?; nil)
-;(aset skk-input-vector ?? nil)
-;(aset skk-input-vector ?@ "¡÷")
-;(aset skk-input-vector ?~ "¡Á")
+(setq skk-keep-record t)
+(setq skk-record-file "~/.skk/skk-record")
+
+(setq skk-date-ad t)
+(setq skk-number-style nil)
+
+(setq skk-use-color-cursor nil)
+(setq skk-use-face nil)
 
 ;;;
 ;;; Roma-Kana Conversion
 ;;;
-(setq skk-rom-kana-rule-list 
-  '(("n'" nil ("¥ó" . "¤ó")) 
-	("nn" nil ("¥ó" . "¤ó")) 
-	("xw" "*" ("" . ""))
-	("*i" nil ("¥ð" . "¤ð"))
-	("*e" nil ("¥ñ" . "¤ñ"))	
-	("@" nil "¡÷")	
-	("*" nil "*")	
-	("#" nil "¡ô")	
-	;; ("~" nil "¡Á")
-	("\\" nil "\\")	
-	("$" nil "$")	
-	(":" nil ":")	
-	(";" nil ";")	
-	("?" nil "?")	
-	("jf" nil ("Ê¿ÅÄ¤Ç¤¹¡£" . "Ê¿ÅÄ¤Ç¤¹¡£"))
-	("js" nil 
-		("Ê¿ÅÄ¡÷¥·¥¹¥Æ¥à´ðÈ×°ìÉô¤Ç¤¹¡£" . "Ê¿ÅÄ¡÷¥·¥¹¥Æ¥à´ðÈ×°ìÉô¤Ç¤¹¡£"))
-	("jn" nil ("Ê¿ÅÄ¡÷NRI ¤Ç¤¹¡£" . "Ê¿ÅÄ¡÷NRI ¤Ç¤¹¡£"))))
+(setq skk-rom-kana-rule-list
+  '(("n'" nil ("ãƒ³" . "ã‚“"))
+    ("nn" nil ("ãƒ³" . "ã‚“"))
+    ("xw" "*" ("" . ""))
+    ("*i" nil ("ãƒ°" . "ã‚"))
+    ("*e" nil ("ãƒ±" . "ã‚‘"))
+    ("@" nil "ï¼ ")
+    ("*" nil "*")
+    ("#" nil "ï¼ƒ")
+    ;; ("~" nil "ã€œ")
+    ("\\" nil "\\")
+    ("z\\" nil skk-list-chars)
+    ("$" nil "$")
+    (":" nil ":")
+    (";" nil ";")
+    ("?" nil "?")
+    ("z3" nil "â‘¢")
+    ("z4" nil "â‘£")
+    ("z5" nil "â‘¤")
+    ("z6" nil "â‘¥")
+    ("z7" nil "â‘¦")
+    ("z8" nil "â‘§")
+    ("z9" nil "â‘¨")
+    ("z10" nil "â‘©")
+    ("z11" nil "â‘ª")
+    ("z12" nil "â‘«")
+    ("z13" nil "â‘¬")
+    ("z14" nil "â‘­")
+    ("z15" nil "â‘®")
+    ("z16" nil "â‘¯")
+    ("z17" nil "â‘°")
+    ("z18" nil "â‘±")
+    ("z19" nil "â‘²")
+    ("z20" nil "â‘³")
+    ("z1" "" "â‘ ")
+    ("z2" "" "â‘¡")
+    ("jf" nil ("å¹³ç”°ã§ã™ã€‚" . "å¹³ç”°ã§ã™ã€‚"))
+    ("js" nil 
+     ("å¹³ç”°ï¼ ITåŸºç›¤æŠ€è¡“éƒ¨ã§ã™ã€‚" . "å¹³ç”°ï¼ ITåŸºç›¤æŠ€è¡“éƒ¨ã§ã™ã€‚"))
+    ("jn" nil ("å¹³ç”°ï¼ NRI ã§ã™ã€‚" . "å¹³ç”°ï¼ NRI ã§ã™ã€‚"))))
 
 ;;;
-;;; Date command
+;;; Add maru-suji to skk-num-type-alist
 ;;;
-(defun j-date (ad style)
-  (let ((skk-date-ad ad)
-	(skk-number-style style))
-    (skk-today)))
+(defun skk-num-maru-suji (num)
+  (let ((s "â‘ â‘¡â‘¢â‘£â‘¤â‘¥â‘¦â‘§â‘¨â‘©â‘ªâ‘«â‘¬â‘­â‘®â‘¯â‘°â‘±â‘²â‘³")
+	(n (string-to-number num)))
+    (when (and (>= n 1) (<= n 20))
+      (let ((m (1- n)))
+	(substring s m (1+ m))))))
+(add-to-list 'skk-num-type-alist '(6 . skk-num-maru-suji))
 
 ;;;
 ;;; Hack for skk-henkan-okuri-strictly
@@ -122,4 +136,3 @@
                       (and (boundp 'skk-mode) skk-mode
                            (skk-isearch-mode-cleanup)
                            (skk-set-cursor-color-properly) ))))
-
