@@ -665,7 +665,8 @@ buffer, change the key-map by this function."
 ;;; migemo
 ;;;
 (require-or-install 'migemo)
-(setq migemo-dictionary (expand-file-name "~/.emacs.d/dict/migemo-dict"))
+(setq migemo-dictionary
+      (expand-file-name "~/.emacs.d/dict/migemo/migemo-dict"))
 (setq migemo-command (executable-find "cmigemo"))
 (setq migemo-options '("-q" "--emacs"))
 (setq migemo-user-dictionary nil)
