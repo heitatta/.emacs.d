@@ -620,16 +620,6 @@ buffer, change the key-map by this function."
 (setq swbuff-window-min-text-height 3)
 
 ;;;
-;;; filecache (find-file 中に \C-c\C-i で 指定ディレクトリの下全部を検索、マッ
-;;; チしたものを表示する。
-;;;
-(when (not (featurep 'w32-win))
-  (require 'filecache)
-  (file-cache-add-directory-using-locate "hirata/Dropbox")
-  (define-key minibuffer-local-completion-map
-    "\C-c\C-i" 'file-cache-minibuffer-complete))
-
-;;;
 ;;; Recent used file
 ;;;
 (require 'recentf)
