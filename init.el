@@ -520,6 +520,7 @@ buffer, change the key-map by this function."
 ;;;
 ;;; Mew
 ;;;
+(require-or-install 'mew)
 (autoload 'mew "mew" nil t)
 (autoload 'mew-send "mew" nil t)
 (autoload 'mew-user-agent-compose "mew" nil t)
