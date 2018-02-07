@@ -580,18 +580,13 @@ buffer, change the key-map by this function."
 (setq vc-handled-backends nil)
 
 ;;;
-;;; Edic
+;;; Telgate
 ;;;
-(autoload 'edic "edic" "English-Japanese Dictionary" t)
-(autoload 'eedic "eedic" "English-English Dictionary (online)" t)
 (autoload 'telgate "telgate" "NRI Telephone Book Search" t)
-(autoload 'mouse-edic "edic" "English-Japanese Dictionary" t)
-(setq edic-program "~/bin/ejdic")
-(setq edic-dictionary "/home/hirata/lib/dict/ejdic")
 (modify-coding-system-alist 'process "telgate" 'utf-8)
 
 ;;;
-;;; Japanese/English dictionary (C-ce, C-cd)
+;;; Japanese/English dictionary (C-ce, C-cM-e)
 ;;;
 (require-or-install 'google-translate)
 (require-or-install 'google-translate-default-ui)
