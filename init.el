@@ -938,10 +938,10 @@ buffer, change the key-map by this function."
 (global-set-key "\C-ca" 'allen)
 (global-set-key "\C-cb" 'compile)       ;; build
 (global-set-key "\C-cc" 'calendar)
-(global-set-key "\C-cd" 'sdic-describe-word-at-point)
 (global-set-key "\C-cd" 'dmacro-exec)
 (global-set-key "\C-ce" 'google-translate-at-point)
 (global-set-key "\C-cE" 'google-translate-at-point-reverse)
+(global-set-key "\C-c\M-e" 'sdic-describe-word-at-point)
 (global-set-key "\C-cf" 'mew)
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key "\C-ch" 'help-for-help)
