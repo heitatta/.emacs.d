@@ -438,8 +438,7 @@ buffer, change the key-map by this function."
 ;;;
 ;;; Haskell
 ;;;
-(when (locate-library "haskell-site-file")
-  (load "haskell-site-file"))
+(require-or-install 'haskell-mode)
 (setq auto-mode-alist
       (append auto-mode-alist
               '(("\\.[hg]s$"  . haskell-mode)
