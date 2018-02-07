@@ -472,10 +472,9 @@ buffer, change the key-map by this function."
 ;;;
 ;;; yaml mode
 ;;;
-(if (locate-library "yaml-mode")
-    (progn
-      (autoload 'yaml-mode "yaml-mode" nil t)
-      (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))))
+(require-or-install 'yaml-mode)
+(autoload 'yaml-mode "yaml-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))))
 
 ;;;
 ;;; erlang
