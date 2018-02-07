@@ -591,12 +591,21 @@ buffer, change the key-map by this function."
 (modify-coding-system-alist 'process "telgate" 'utf-8)
 
 ;;;
-;;; Japanese/English dictionary (C-ce)
+;;; Japanese/English dictionary (C-ce, C-cd)
 ;;;
 (require-or-install 'google-translate)
 (require-or-install 'google-translate-default-ui)
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "ja")
+
+;;; with sdic
+(autoload 'sdic-describe-word "sdic" nil t)
+(autoload 'sdic-describe-word-at-point "sdic" nil t)
+(setq sdic-eiwa-dictionary-list
+      '((sdicf-client "~/.emacs.d/dict/eijirou.sdic")))
+(setq sdic-waei-dictionary-list
+      '((sdicf-client "~/.emacs.d/dict/waeijirou.sdic"
+                      (add-keys-to-headword t))))
 
 ;;;
 ;;; TRR & Allen (trr program specialized for Allen series.)
@@ -929,7 +938,7 @@ buffer, change the key-map by this function."
 (global-set-key "\C-ca" 'allen)
 (global-set-key "\C-cb" 'compile)       ;; build
 (global-set-key "\C-cc" 'calendar)
-;(global-set-key "\C-cd" 'diary)
+(global-set-key "\C-cd" 'sdic-describe-word-at-point)
 (global-set-key "\C-cd" 'dmacro-exec)
 (global-set-key "\C-ce" 'google-translate-at-point)
 (global-set-key "\C-cE" 'google-translate-at-point-reverse)
