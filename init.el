@@ -409,6 +409,7 @@ buffer, change the key-map by this function."
 ;;;
 ;;; Ruby
 ;;;
+(require-or-install 'inf-ruby)
 (setq ruby-program-name (executable-find "irb"))
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files")
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
@@ -559,6 +560,7 @@ buffer, change the key-map by this function."
 ;;;
 ;;; YaTeX
 ;;;
+(require-or-install 'yatex)
 (autoload 'yatex-mode "yatex" "Yet Another LaTeX Mode" t)
 (put 'yatex-mode 'font-lock-defaults 'tex-mode)
 (setq auto-mode-alist
@@ -1001,8 +1003,11 @@ buffer, change the key-map by this function."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(electric-indent-mode nil)
+ '(package-selected-packages
+   (quote
+    (mhc yatex inf-ruby haskell-mode yaml-mode swbuff session migemo mew js2-mode japanese-holidays google-translate elpy dired-single cp5022x auto-save-buffers-enhanced auto-complete)))
  '(safe-local-variable-values (quote ((paragraph-indent-text-mode . off))))
-)
+ '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
