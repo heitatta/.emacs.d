@@ -361,6 +361,8 @@ buffer, change the key-map by this function."
 ;;;
 ;;; go-mode
 ;;;
+(require-or-install 'go-mode)
+(require-or-install 'go-autocomplete)
 (add-to-list 'auto-mode-alist '("\\.go$" . go-mode))
 (autoload 'go-mode "go-mode" nil t)
 (add-hook 'go-mode-hook '(lambda ()
