@@ -42,7 +42,9 @@
 
 (defun require-or-install (pkg)
   (unless (locate-library (symbol-name pkg))
-    (package-refresh-contents)
+    (unless (boundp 'has-package-refreshed)
+      (package-refresh-contents)
+      (defvar has-package-refreshed))
     (package-install pkg))
   (require pkg))
 
