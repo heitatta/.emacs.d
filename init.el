@@ -585,6 +585,7 @@ buffer, change the key-map by this function."
 ;;; Telgate
 ;;;
 (autoload 'telgate "telgate" "NRI Telephone Book Search" t)
+(setq telgate-program (expand-file-name "~/bin/telgate"))
 (modify-coding-system-alist 'process "telgate" 'utf-8)
 
 ;;;
