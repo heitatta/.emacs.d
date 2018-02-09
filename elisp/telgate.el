@@ -38,8 +38,7 @@
   "Search NRI Yellow Page"
   (interactive "P")
   (save-excursion
-	(let* ((cur-buf (mode-line-mode-name))
-		   (buffer (get-buffer-create "*NRI Yellow Page*"))
+	(let* ((buffer (get-buffer-create "*NRI Yellow Page*"))
 		   (org-buffer (current-buffer))
 		   (start (progn 
 					(if (not (looking-at "\\<")) (forward-word -1))
