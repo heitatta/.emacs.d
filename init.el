@@ -111,14 +111,14 @@
 ;;;
 ;;; Shell command convention (arguments isn't like Win32).
 ;;;
-(if (featurep 'w32-win)
-        (progn
-          (setq explicit-shell-file-name "c:/cygwin/bin/bash.exe")
-          (setq shell-file-name "c:/cygwin/bin/bash.exe"
-                shell-command-option "-c")
-          (modify-coding-system-alist 'process ".*sh\\.exe" 'utf-8-unix))
-  (setq shell-file-name (executable-find "zsh"))
-  (modify-coding-system-alist 'process ".*sh" 'utf-8))
+(cond ((featurep 'w32-win)
+       (setq explicit-shell-file-name "c:/cygwin/bin/bash.exe")
+       (setq shell-file-name "c:/cygwin/bin/bash.exe"
+             shell-command-option "-c")
+       (modify-coding-system-alist 'process ".*sh\\.exe" 'utf-8-unix))
+      (t
+       (setq shell-file-name (executable-find "zsh"))
+       (modify-coding-system-alist 'process ".*sh" 'utf-8)))
 
 (setq shell-edit-mode-map (make-sparse-keymap))
 (defun toggle-shell-edit-mode ()
@@ -155,18 +155,18 @@ buffer, change the key-map by this function."
 ;;;
 ;;; Info mode (C-ci)
 ;;;
-(if (featurep 'w32-win)
-    (setq emacs-install-dir
-          (let ((version (emacs-version)))
-            (string-match "Emacs \\([0-9]+\\.[0-9]+\\)" version)
-            (format "/Program Files/emacs-%s" (match-string 1 version)))))
-(if (featurep 'w32-win)
-    (setq Info-directory-list
-          (cons (format "%s/info" emacs-install-dir) '("/usr/info")))
-  (setq Info-directory-list '("/usr/share/info")
-        Info-additional-directory-list '("usr/local/info" "/usr/info"
-                                         "/usr/local/share/info"
-                                         "/usr/X11R6/info")))
+(cond ((featurep 'w32-win)
+       (setq emacs-install-dir
+             (let ((version (emacs-version)))
+               (string-match "Emacs \\([0-9]+\\.[0-9]+\\)" version)
+               (format "/Program Files/emacs-%s" (match-string 1 version))))
+      (setq Info-directory-list
+            (cons (format "%s/info" emacs-install-dir) '("/usr/info"))))
+      (t
+       (setq Info-directory-list '("/usr/share/info")
+             Info-additional-directory-list '("usr/local/info" "/usr/info"
+                                              "/usr/local/share/info"
+                                              "/usr/X11R6/info"))))
 
 ;;;
 ;;; View mode
