@@ -613,7 +613,7 @@ buffer, change the key-map by this function."
   (setenv "TRRDIR" "c:/Meadow2/site-lisp/trr19")
   (setenv "TRRBINDIR" "c:/Meadow2/site-lisp/trr19"))
 (autoload 'allen "allen" "Typing traning program" t)
-(setq allen-text-directory "~/doc/allen")
+(setq allen-text-directory "~/Dropbox/doc/allen")
 
 ;;;
 ;;; dmacro
@@ -656,11 +656,20 @@ buffer, change the key-map by this function."
 (setq org-display-custom-times t)
 (setq org-cycle-separator-lines 0)
 (setq org-time-stamp-custom-formats '("<%Y/%m/%d>" . "<%Y/%m/%d %H:%M>"))
+(add-hook 'org-mode-hook
+          (lambda () 
+            (setq truncate-lines nil)
+            (set-face-foreground 'org-level-1 "blue")
+            (set-face-foreground 'org-level-2 "navy blue")
+            (set-face-foreground 'org-level-3 "slate blue")
+            (set-face-foreground 'org-level-4 "black")
+            (set-face-foreground 'org-level-5 "gray15")
+            (set-face-foreground 'org-level-6 "gray30")
+            (set-face-foreground 'org-level-7 "gray45")
+            (set-face-foreground 'org-level-8 "gray60")))
 (setq org-capture-templates
       '(("m" "memo" entry (file "~/Dropbox/PlainText/memo.org")
              "* %u %i %?" :prepend t)))
-(add-hook 'org-mode-hook
-          (lambda () (setq truncate-lines nil)))
 (defun gtd ()
   (interactive)
   (find-file "~/Dropbox/PlainText/gtd.org"))
