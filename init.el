@@ -249,6 +249,12 @@ buffer, change the key-map by this function."
   (global-whitespace-mode 1))
 
 ;;;
+;;; shrink-whitespace
+;;;
+(require-or-install 'shrink-whitespace)
+(global-set-key (kbd "M-SPC") 'shrink-whitespace)
+
+;;;
 ;;; Dired
 ;;;
 (require-or-install 'dired-single)
