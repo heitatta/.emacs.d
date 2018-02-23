@@ -985,6 +985,8 @@ buffer, change the key-map by this function."
 (global-set-key "\M-\C-k" 'swbuff-switch-to-previous-buffer)
 (global-set-key "\C-c;" '(lambda () (interactive)
                            (insert-string (current-time-string))))
+(global-set-key "\M-[" 'backward-paragraph)
+(global-set-key "\M-]" 'forward-paragraph)
 (global-unset-key "\C-x\C-c")
 (global-unset-key "\C-x\C-z")
 (global-unset-key "\C-z")
