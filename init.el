@@ -179,11 +179,8 @@ buffer, change the key-map by this function."
 ;;;
 ;;; auto-complete
 ;;;
-(require-or-install 'auto-complete)
-(require-or-install 'auto-complete-config)
-(global-auto-complete-mode t)
-(setq ac-auto-start t)
-(ac-set-trigger-key "C-i")
+(require-or-install 'company)
+(global-company-mode)
 
 ;;;
 ;;; Ange FTP
