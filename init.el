@@ -798,7 +798,7 @@ buffer, change the key-map by this function."
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
-(put 'set-goal-column 'disabled nil)
+;(put 'set-goal-column 'disabled t)
 
 ;;;
 ;;; faces
