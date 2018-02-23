@@ -796,6 +796,7 @@ buffer, change the key-map by this function."
 (transient-mark-mode 1)
 ;(mouse-avoidance-mode 'banish)
 (mouse-avoidance-mode 'jump)
+(global-auto-revert-mode)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
