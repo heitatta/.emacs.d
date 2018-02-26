@@ -120,7 +120,7 @@
        (setq shell-file-name (executable-find "zsh"))
        (modify-coding-system-alist 'process ".*sh" 'utf-8)))
 (cond ((featurep 'macos)
-       (setq system-uses-terminfo nil))
+       (setq system-uses-terminfo nil)))
 
 (setq shell-edit-mode-map (make-sparse-keymap))
 (defun toggle-shell-edit-mode ()
