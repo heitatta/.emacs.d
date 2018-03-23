@@ -90,13 +90,14 @@
 
 ;;;
 ;;; Default Mode
+;;; (see custom-set-variables)
 ;;;
-(setq major-mode 'paragraph-indent-text-mode)
 (setq initial-major-mode 'paragraph-indent-text-mode)
-(add-hook 'text-mode-hook '(lambda ()
-                             (turn-on-auto-fill)
-                             (paragraph-indent-minor-mode)
-                             (setq adaptive-fill-mode nil)))
+(add-hook 'paragraph-indent-text-mode-hook
+          '(lambda ()
+             (turn-on-auto-fill)
+             (paragraph-indent-minor-mode)
+             (setq adaptive-fill-mode nil)))
 (define-key text-mode-map "\t" 'tab-to-tab-stop)
 (define-key text-mode-map "\M-i" 'indent-relative)
 
@@ -1027,10 +1028,10 @@ buffer, change the key-map by this function."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(electric-indent-mode nil)
+ '(major-mode (quote paragraph-indent-text-mode))
  '(package-selected-packages
    (quote
     (mhc yatex inf-ruby haskell-mode yaml-mode swbuff session migemo mew js2-mode japanese-holidays google-translate elpy dired-single cp5022x auto-save-buffers-enhanced auto-complete)))
- '(safe-local-variable-values (quote ((paragraph-indent-text-mode . off))))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
