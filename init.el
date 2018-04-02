@@ -771,6 +771,18 @@ buffer, change the key-map by this function."
   (require 'altbell))
 
 ;;;
+;;; 選択範囲の情報表示
+;;;
+(defun format-chars-count ()
+  (if mark-active
+      (format "[%3d:%4d]"
+              (count-lines (region-beginning) (region-end))
+              (- (region-end) (region-beginning)))
+    ""))
+(add-to-list 'default-mode-line-format
+             '(:eval (format-chars-count)))
+
+;;;
 ;;; Favorite Features
 ;;;
 (setq system-time-locale "C")  ;; for dired
