@@ -403,8 +403,8 @@ buffer, change the key-map by this function."
 ;;; python
 ;;;
 (require-or-install 'elpy)
-(add-to-list 'exec-path
-             '("c:/Users/hirata/Anaconda3/Scripts"))
+(when (featurep 'w32-win)
+  (add-to-list 'exec-path "c:/ProgramData/Anaconda3/Scripts"))
 (elpy-enable)
 (setq elpy-test-runner 'elpy-test-pytest-runner)
 ; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
