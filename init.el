@@ -659,8 +659,9 @@ buffer, change the key-map by this function."
 ;;;
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (setq org-hide-leading-stars t)
-(setq org-display-custom-times t)
+(setq org-startup-indented t)
 (setq org-cycle-separator-lines 0)
+(setq org-display-custom-times t)
 (setq org-time-stamp-custom-formats '("<%Y/%m/%d>" . "<%Y/%m/%d %H:%M>"))
 (add-hook 'org-mode-hook
           (lambda () 
