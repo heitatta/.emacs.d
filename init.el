@@ -673,7 +673,8 @@ buffer, change the key-map by this function."
             (set-face-foreground 'org-level-5 "gray15")
             (set-face-foreground 'org-level-6 "gray30")
             (set-face-foreground 'org-level-7 "gray45")
-            (set-face-foreground 'org-level-8 "gray60")))
+            (set-face-foreground 'org-level-8 "gray60")
+            (set-face-foreground 'org-indent  "gray100")))
 (setq org-capture-templates
       '(("m" "memo" entry (file "~/Dropbox/PlainText/memo.org")
              "* %u %i %?" :prepend t)))
