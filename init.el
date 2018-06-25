@@ -780,8 +780,8 @@ buffer, change the key-map by this function."
               (count-lines (region-beginning) (region-end))
               (- (region-end) (region-beginning)))
     ""))
-(add-to-list 'default-mode-line-format
-             '(:eval (format-chars-count)))
+(setq-default mode-line-format
+              (add-to-list 'mode-line-format '(:eval (format-chars-count))))
 
 ;;;
 ;;; Favorite Features
@@ -935,12 +935,12 @@ buffer, change the key-map by this function."
 
 (when window-system
   (if (featurep 'w32-win)
-      (setq frame-parameters-alist '((font . "fontset-standard")
+      (setq frame-parameters-alist '((fontset . "fontset-standard")
                                      (top . 00)
                                      (left . 200)
                                      (width . 80)
-                                     (height . 50)))
-    (setq frame-parameters-alist '((font . "fontset-standard")
+                                     (height . 48)))
+    (setq frame-parameters-alist '((fontset . "fontset-standard")
                                    (top . 00)
                                    (left . 850)
                                    (width . 80)
