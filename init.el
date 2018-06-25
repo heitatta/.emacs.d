@@ -631,9 +631,8 @@ buffer, change the key-map by this function."
 ;;; switch buffer
 ;;;
 ; C-M-j/k でバッファを切り替え
-(require-or-install 'swbuff)
-(setq swbuff-exclude-buffer-regexps '("^ " "^\*.*\*"))
-(setq swbuff-window-min-text-height 3)
+(require-or-install 'cycbuf)
+(setq cycbuf-dont-show-regexp '("^ " "^\*.*\*"))
 
 ;;;
 ;;; Recent used file
@@ -998,8 +997,8 @@ buffer, change the key-map by this function."
 (global-set-key "\C-c\C-y" 'clipboard-yank)
 (global-set-key [delete]   'help-for-help)
 (global-set-key "\C-c\M-%" 'query-replace-regexp)
-(global-set-key "\M-\C-j" 'swbuff-switch-to-next-buffer)
-(global-set-key "\M-\C-k" 'swbuff-switch-to-previous-buffer)
+(global-set-key "\M-\C-j" 'cycbuf-switch-to-next-buffer)
+(global-set-key "\M-\C-k" 'cycbuf-switch-to-previous-buffer)
 (global-set-key "\C-c;" '(lambda () (interactive)
                            (insert-string (current-time-string))))
 (global-set-key "\M-[" 'backward-paragraph)
@@ -1045,7 +1044,7 @@ buffer, change the key-map by this function."
  '(major-mode (quote paragraph-indent-text-mode))
  '(package-selected-packages
    (quote
-    (mhc yatex inf-ruby haskell-mode yaml-mode swbuff session migemo mew js2-mode japanese-holidays google-translate elpy dired-single cp5022x auto-save-buffers-enhanced auto-complete)))
+    (cycbuf cycbuff mhc yatex inf-ruby haskell-mode yaml-mode swbuff session migemo mew js2-mode japanese-holidays google-translate elpy dired-single cp5022x auto-save-buffers-enhanced auto-complete)))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
