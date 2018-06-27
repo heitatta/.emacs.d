@@ -58,7 +58,7 @@
 
 (if (featurep 'w32-win)
     (setq exec-path
-          (append '("c:/cygwin/bin" "c:/cygwin/home/hirata/bin") exec-path))
+          (append '("c:/users/heita/bin") exec-path))
   (setq exec-path
         (append '("/usr/bin/" "/usr/local/bin" "/opt/local/bin"
                   "/Users/hirata/bin" "/home/hirata/bin")
