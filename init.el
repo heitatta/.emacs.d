@@ -857,11 +857,12 @@ buffer, change the key-map by this function."
   (set-fontset-font "fontset-standard" 'latin
                     (font-spec :family "DeJavu Sans Mono" :size 12))
   (set-fontset-font "fontset-standard" 'japanese-jisx0208
-                    (font-spec :family "ヒラギノ角ゴ Pro W3" :size 14))
+                    (font-spec :family "游ゴシック" :size 14))
   (set-fontset-font "fontset-standard" 'kana
-                    (font-spec :family "ヒラギノ角ゴ Pro W3" :size 14))
+                    (font-spec :family "游ゴシック" :size 14))
   (set-fontset-font "fontset-standard" '(#x2460 . #x24ea)
-                    (font-spec :family "ＭＳ 明朝" :size 14)))
+                    (font-spec :family "游ゴシック" :size 14))
+)
 
 ; Linux
 (when (and window-system (string-match "linux" system-configuration))
@@ -935,12 +936,12 @@ buffer, change the key-map by this function."
 
 (when window-system
   (if (featurep 'w32-win)
-      (setq frame-parameters-alist '((fontset . "fontset-standard")
+      (setq frame-parameters-alist '((font . "fontset-standard")
                                      (top . 00)
                                      (left . 200)
                                      (width . 80)
                                      (height . 48)))
-    (setq frame-parameters-alist '((fontset . "fontset-standard")
+    (setq frame-parameters-alist '((font . "fontset-standard")
                                    (top . 00)
                                    (left . 850)
                                    (width . 80)
