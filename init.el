@@ -771,7 +771,7 @@ buffer, change the key-map by this function."
       (cons ".ord" (cons ".opt" completion-ignored-extensions)))
 
 ;;;
-;;; Alternative visuall bell
+;;; Alternative visual bell
 ;;;
 (when (locate-library "altbell")
   (require 'altbell))
