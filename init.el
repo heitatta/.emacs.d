@@ -58,7 +58,9 @@
 
 (if (featurep 'w32-win)
     (setq exec-path
-          (append '("c:/users/heita/bin") exec-path))
+          (append '("c:/users/heita/bin"
+                    "c:/Program Files(x86)/GnuPG/bin")
+                  exec-path))
   (setq exec-path
         (append '("/usr/bin/" "/usr/local/bin" "/opt/local/bin"
                   "/Users/hirata/bin" "/home/hirata/bin")
@@ -113,8 +115,8 @@
 ;;; Shell command convention (arguments isn't like Win32).
 ;;;
 (cond ((featurep 'w32-win)
-       (setq explicit-shell-file-name "c:/cygwin/bin/bash.exe")
-       (setq shell-file-name "c:/cygwin/bin/bash.exe"
+       (setq explicit-shell-file-name "c:/Windows/system32/bash.exe")
+       (setq shell-file-name "c:/Windows/system32/bash.exe"
              shell-command-option "-c")
        (modify-coding-system-alist 'process ".*sh\\.exe" 'utf-8-unix))
       (t
@@ -751,7 +753,9 @@ buffer, change the key-map by this function."
 ;  (setenv "DICTIONARY" "c:/cygwin/usr/local/share/ispell/english.hash")
 ;  (setq ispell-alternate-dictionary
 ;       "c:/cygwin/usr/local/share/ispell/american.hash"))
-(setq-default ispell-program-name "aspell")
+(if (featurep 'w32-win)
+    (setq-default ispell-program-name "aspell.bat")
+  (setq-default ispell-program-name "aspell"))
 
 ;;;
 ;;; tramp
@@ -1050,8 +1054,9 @@ buffer, change the key-map by this function."
  '(major-mode (quote paragraph-indent-text-mode))
  '(package-selected-packages
    (quote
-    (cycbuf cycbuff mhc yatex inf-ruby haskell-mode yaml-mode swbuff session migemo mew js2-mode japanese-holidays google-translate elpy dired-single cp5022x auto-save-buffers-enhanced auto-complete)))
- '(session-use-package t nil (session)))
+    (google-translate cycbuf cycbuff mhc yatex inf-ruby haskell-mode yaml-mode swbuff session migemo mew js2-mode japanese-holidays elpy dired-single cp5022x auto-save-buffers-enhanced auto-complete)))
+ '(session-use-package t nil (session))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
