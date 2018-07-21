@@ -872,12 +872,10 @@ buffer, change the key-map by this function."
 (when (and window-system (featurep 'w32-win))
   (set-fontset-font "fontset-standard" 'latin
                     (font-spec :family "Monaco" :size 14))
-  (set-fontset-font "fontset-standard" 'han
-                    (font-spec :family "游明朝" :size 16))
-  (set-fontset-font "fontset-standard" 'kana
+  (set-fontset-font "fontset-standard" 'cp932
                     (font-spec :family "游明朝" :size 16))
   (set-fontset-font "fontset-standard" 'symbol
-                    (font-spec :family "游明朝" :size 16)))
+                    (font-spec :family "游ゴシック" :size 16)))
 
 ; Linux
 (when (and window-system (string-match "linux" system-configuration))
