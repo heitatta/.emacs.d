@@ -890,25 +890,19 @@ buffer, change the key-map by this function."
   ; size 12 / gothic
   (set-fontset-font "fontset-standard" 'latin
                     (font-spec :family "Inconsolata" :size 12))
-  (set-fontset-font "fontset-standard" 'han
-                    (font-spec :family "VL ゴシック" :size 14))
-  (set-fontset-font "fontset-standard" 'kana
+  (set-fontset-font "fontset-standard" 'cp932
                     (font-spec :family "VL ゴシック" :size 14))
   (set-fontset-font "fontset-standard" 'symbol
                     (font-spec :family "HG P明朝L Sun" :size 12)))
 
-; emacs24 on Mac
+; emacs26 on Mac
 (when (and window-system (featurep 'macos))
   (set-fontset-font "fontset-standard" 'latin
                     (font-spec :family "Monaco" :size 12))
-  (set-fontset-font "fontset-standard" 'han
-                    ;'("Hiragino Kaku Gothic ProN")
-                    '("ヒラギノ明朝 ProN"))
-  (set-fontset-font "fontset-standard" 'kana
-                    ;'("Hiragino Kaku Gothic ProN")
-                    '("ヒラギノ明朝 ProN"))
+  (set-fontset-font "fontset-standard" 'cp932
+                    (font-spec :family "ヒラギノ明朝 ProN" :size 14))
   (set-fontset-font "fontset-standard" 'symbol
-                    '("ヒラギノ明朝 ProN"))
+                    (font-spec :family "Hiragino Kaku Gothic ProN" :size 14))
   (setq face-font-rescale-alist
     '(("^-apple-hiragino.*" . 1.2)
       (".*osaka-bold.*" . 1.2)
