@@ -861,17 +861,19 @@ buffer, change the key-map by this function."
                       :foreground "white"
                       :box nil))
 
+; emacs25 uses default (ascii) font for symbols and this turns off the feature
+(setq use-default-font-for-symbols nil)
+
 ; emacs23 on Windows
 (when (and window-system (featurep 'w32-win))
   (set-fontset-font "fontset-standard" 'latin
-                    (font-spec :family "DeJavu Sans Mono" :size 12))
-  (set-fontset-font "fontset-standard" 'japanese-jisx0208
-                    (font-spec :family "游ゴシック" :size 14))
+                    (font-spec :family "Monaco" :size 14))
+  (set-fontset-font "fontset-standard" 'han
+                    (font-spec :family "游明朝" :size 16))
   (set-fontset-font "fontset-standard" 'kana
-                    (font-spec :family "游ゴシック" :size 14))
-  (set-fontset-font "fontset-standard" '(#x2460 . #x24ea)
-                    (font-spec :family "游ゴシック" :size 14))
-)
+                    (font-spec :family "游明朝" :size 16))
+  (set-fontset-font "fontset-standard" 'symbol
+                    (font-spec :family "游明朝" :size 16)))
 
 ; Linux
 (when (and window-system (string-match "linux" system-configuration))
@@ -886,33 +888,25 @@ buffer, change the key-map by this function."
   ; size 12 / gothic
   (set-fontset-font "fontset-standard" 'latin
                     (font-spec :family "Inconsolata" :size 12))
-  (set-fontset-font "fontset-standard" 'japanese-jisx0208
+  (set-fontset-font "fontset-standard" 'han
                     (font-spec :family "VL ゴシック" :size 14))
   (set-fontset-font "fontset-standard" 'kana
                     (font-spec :family "VL ゴシック" :size 14))
-  (set-fontset-font "fontset-standard" '(#x2460 . #x24ea)
-  (font-spec :family "HG P明朝L Sun" :size 12)))
+  (set-fontset-font "fontset-standard" 'symbol
+                    (font-spec :family "HG P明朝L Sun" :size 12)))
 
 ; emacs24 on Mac
 (when (and window-system (featurep 'macos))
-  ;; ASCII フォント
   (set-fontset-font "fontset-standard" 'latin
-                    ;(font-spec :family "Menlo" :size 12)
-                    ;(font-spec :family "hoge" :size 12)
-                    (font-spec :family "Monaco" :size 12)
-                    )
-  ;; 日本語のフォント
-  (set-fontset-font "fontset-standard" 'japanese-jisx0208
-                    ;'("Hiragino Maru Gothic ProN")
+                    (font-spec :family "Monaco" :size 12))
+  (set-fontset-font "fontset-standard" 'han
                     ;'("Hiragino Kaku Gothic ProN")
-                    '("ヒラギノ明朝 ProN")
-                    )
-  ;; 半角カナのフォント
-  (set-fontset-font "fontset-standard" 'katakana-jisx0201
-                    ;'("Hiragino Maru Gothic ProN")
+                    '("ヒラギノ明朝 ProN"))
+  (set-fontset-font "fontset-standard" 'kana
                     ;'("Hiragino Kaku Gothic ProN")
-                    '("ヒラギノ明朝 ProN")
-                    )
+                    '("ヒラギノ明朝 ProN"))
+  (set-fontset-font "fontset-standard" 'symbol
+                    '("ヒラギノ明朝 ProN"))
   (setq face-font-rescale-alist
     '(("^-apple-hiragino.*" . 1.2)
       (".*osaka-bold.*" . 1.2)
@@ -949,7 +943,7 @@ buffer, change the key-map by this function."
                                      (top . 00)
                                      (left . 200)
                                      (width . 80)
-                                     (height . 48)))
+                                     (height . 42)))
     (setq frame-parameters-alist '((font . "fontset-standard")
                                    (top . 00)
                                    (left . 850)
