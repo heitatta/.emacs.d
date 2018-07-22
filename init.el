@@ -899,7 +899,7 @@ buffer, change the key-map by this function."
 (when (and window-system (featurep 'macos))
   (set-fontset-font "fontset-standard" 'latin
                     (font-spec :family "Monaco" :size 12))
-  (set-fontset-font "fontset-standard" 'cp932
+  (set-fontset-font "fontset-standard" 'symbol
                     (font-spec :family "ヒラギノ明朝 ProN" :size 14))
   (set-fontset-font "fontset-standard" 'symbol
                     (font-spec :family "Hiragino Kaku Gothic ProN" :size 14))
