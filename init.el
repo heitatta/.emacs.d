@@ -235,7 +235,7 @@ buffer, change the key-map by this function."
         (fc "light gray"))
     (set-face-background 'whitespace-line nil)
     (set-face-foreground 'whitespace-line nil)
-    (set-face-background 'whitespace-empty bc)
+    (set-face-background 'whitespace-empty nil)
     (set-face-background 'whitespace-indentation bc)
     (set-face-background 'whitespace-space-after-tab bc)
     (set-face-background 'whitespace-space-before-tab bc)
@@ -871,11 +871,11 @@ buffer, change the key-map by this function."
 ; emacs23 on Windows
 (when (and window-system (featurep 'w32-win))
   (set-fontset-font "fontset-standard" 'latin
-                    (font-spec :family "Monaco" :size 14))
+                    (font-spec :family "Monaco" :size 12))
   (set-fontset-font "fontset-standard" 'cp932
-                    (font-spec :family "游明朝" :size 16))
+                    (font-spec :family "游明朝" :size 14))
   (set-fontset-font "fontset-standard" 'symbol
-                    (font-spec :family "游ゴシック" :size 16)))
+                    (font-spec :family "游ゴシック" :size 14)))
 
 ; Linux
 (when (and window-system (string-match "linux" system-configuration))
