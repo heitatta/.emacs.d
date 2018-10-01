@@ -97,7 +97,7 @@
 (defvar sdic-left-margin 2 "*Left margin of contents.
 説明文の左側の余白幅")
 
-(defvar sdic-fill-column default-fill-column "*Right edge of contents.
+(defvar sdic-fill-column fill-column "*Right edge of contents.
 説明文を整形する幅")
 
 (defvar sdic-window-height 10 "*Height of window to show entrys and contents.
