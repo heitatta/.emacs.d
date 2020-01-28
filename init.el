@@ -742,7 +742,7 @@ buffer, change the key-map by this function."
 (require-or-install 'auto-save-buffers-enhanced)
 (setq auto-save-buffers-enhanced-interval 1)
 (setq auto-save-buffers-enhanced-include-regexps '(".+")) ;全ファイル
-(setq auto-save-buffers-enhanced-exclude-regexps '("\\.gpg$"))
+(setq auto-save-buffers-enhanced-exclude-regexps '("^z:/\\|\\.gpg$"))
 (setq auto-save-buffers-enhanced-quiet-save-p t)
 (setq auto-save-buffers-enhanced-save-scratch-buffer-to-file-p t)
 (setq auto-save-buffers-enhanced-file-related-with-scratch-buffer
