@@ -110,6 +110,8 @@
   (require 'server)
   (server-start))
 (setq gnuserv-frame (selected-frame))
+(require-or-install 'edit-server)
+(edit-server-start)
 
 ;;;
 ;;; Shell command convention (arguments isn't like Win32).
@@ -1044,7 +1046,7 @@ buffer, change the key-map by this function."
  '(major-mode (quote paragraph-indent-text-mode))
  '(package-selected-packages
    (quote
-    (google-translate cycbuf cycbuff mhc yatex inf-ruby haskell-mode yaml-mode swbuff session migemo mew js2-mode japanese-holidays elpy dired-single cp5022x auto-save-buffers-enhanced auto-complete)))
+    (edit-server dash jdee google-translate cycbuf cycbuff mhc inf-ruby haskell-mode yaml-mode swbuff session migemo mew js2-mode japanese-holidays elpy dired-single cp5022x auto-save-buffers-enhanced auto-complete)))
  '(session-use-package t nil (session))
  '(tool-bar-mode nil))
 (custom-set-faces
