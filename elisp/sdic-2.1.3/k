@@ -1,0 +1,21 @@
+
+Compiling file c:/Users/heita/.emacs.d/elisp/sdic-2.1.3/sdic.el at Mon Oct  1 16:10:15 2018
+sdic.el:159:5:Warning: reference to free variable ‘*euc-japan*unix’
+sdic.el:360:1:Warning: !! The file uses old-style backquotes !!
+This functionality has been obsolete for more than 10 years already
+and will be removed soon.  See (elisp)Backquote in the manual.
+
+In sdic-exit:
+sdic.el:716:4:Warning: ‘mapcar’ called for effect; use ‘mapc’ or
+    ‘dolist’ instead
+sdic.el:717:9:Warning: ‘mapcar’ called for effect; use ‘mapc’ or
+    ‘dolist’ instead
+sdic.el:841:8:Warning: ‘mapcar’ called for effect; use ‘mapc’ or
+    ‘dolist’ instead
+sdic.el:860:12:Warning: ‘mapcar’ called for effect; use ‘mapc’ or
+    ‘dolist’ instead
+
+In end of data:
+sdic.el:956:1:Warning: the following functions are not known to be defined:
+    sdic-compat-available-p, extent-start-position,
+    extent-end-position, extent-list
