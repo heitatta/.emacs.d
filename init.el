@@ -957,7 +957,7 @@ buffer, change the key-map by this function."
 ;;; Easy Access to The Files Often Visited (C-x r j ?)
 ;;;
 (set-register ?e '(file . "~/.emacs.d/init.el"))
-(set-register ?d '(file . "~/Dropbox/PlainText/diary/diary2018"))
+(set-register ?d '(file . "~/Dropbox/PlainText/diary/diary2020"))
 (set-register ?p '(file . "~/Dropbox/doc/NRI/Projects"))
 
 ;;;
